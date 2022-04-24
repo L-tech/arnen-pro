@@ -1,6 +1,6 @@
 {
   "homepage": "https://L-tech.github.io/near-charity",
-  "name": "near-donations",
+  "name": "near-charity",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
