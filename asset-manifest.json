@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/near-charity/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/near-charity/static/js/main.b56b172b.chunk.js",
+    "main.js.map": "/near-charity/static/js/main.b56b172b.chunk.js.map",
+    "runtime-main.js": "/near-charity/static/js/runtime-main.6cc35b90.js",
+    "runtime-main.js.map": "/near-charity/static/js/runtime-main.6cc35b90.js.map",
+    "static/css/2.9fd1b746.chunk.css": "/near-charity/static/css/2.9fd1b746.chunk.css",
+    "static/js/2.251d2ccc.chunk.js": "/near-charity/static/js/2.251d2ccc.chunk.js",
+    "static/js/2.251d2ccc.chunk.js.map": "/near-charity/static/js/2.251d2ccc.chunk.js.map",
+    "static/js/3.7a17ebb5.chunk.js": "/near-charity/static/js/3.7a17ebb5.chunk.js",
+    "static/js/3.7a17ebb5.chunk.js.map": "/near-charity/static/js/3.7a17ebb5.chunk.js.map",
+    "index.html": "/near-charity/index.html",
+    "static/css/2.9fd1b746.chunk.css.map": "/near-charity/static/css/2.9fd1b746.chunk.css.map",
+    "static/css/main.d87cbb72.chunk.css.map": "/near-charity/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.251d2ccc.chunk.js.LICENSE.txt": "/near-charity/static/js/2.251d2ccc.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/near-charity/static/media/bootstrap-icons.c1d7432e.woff",
+    "static/media/donations.1178971e.jpg": "/near-charity/static/media/donations.1178971e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6cc35b90.js",
+    "static/css/2.9fd1b746.chunk.css",
+    "static/js/2.251d2ccc.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.b56b172b.chunk.js"
+  ]
+}
