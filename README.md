@@ -6,7 +6,7 @@ This project is a MVP Dapp built on Near Protocol for making donations and contr
 
 ## Link
 
-You can view the [website](https://l-tech.github.io/near-marketplace-frontend/)
+You can view the [website](https://l-tech.github.io/near-charity/)
 
 ### `npm start`
 
