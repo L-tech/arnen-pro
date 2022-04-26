@@ -73,7 +73,7 @@ const Charities = () => {
             <AddCharity save={addCharity} />
             
           </div>
-          <Row xs={1} sm={2} lg={3} className="g-3  mb-5 g-xl-4 g-xxl-5">
+          <Row xs={1} sm={2} lg={2} className="g-3  mb-5 g-xl-4 g-xxl-5">
             {charities.map((_charity) => (
               <Charity
                 charity={{
