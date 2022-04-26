@@ -14,6 +14,6 @@ export function getCharities() {
 }
 
 export async function donateToCharity({ id, donation }) {
-  parseNearAmount(donation + "");
-  await window.contract.donateToCharity({ charityId: id }, GAS, donation);
+  let pasedDonation= parseNearAmount(donation + "");
+  await window.contract.donateToCharity({ charityId: id }, GAS, parsedDonation);
 }
