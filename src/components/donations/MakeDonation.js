@@ -5,7 +5,9 @@ import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 const MakeDonation = ({ save, id }) => {
   console.log(id);
   const [donation, setDonation] = useState(0);
-  const isFormFilled = () =>  donation;
+  const min = 10000000000000000000000;
+
+  const isFormFilled = () =>  Number(donation) > min;
 
   const [show, setShow] = useState(false);
 
@@ -36,7 +38,7 @@ const MakeDonation = ({ save, id }) => {
             >
               <Form.Control
                 type="text"
-                placeholder="Donation"
+                placeholder="Donation(Min 0.1 Near)"
                 onChange={(e) => {
                   setDonation(e.target.value);
                 }}

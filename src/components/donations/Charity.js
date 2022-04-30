@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { utils } from "near-api-js";
 import MakeDonation from "./MakeDonation";
 import { Card, Button, Col, Badge, Stack } from "react-bootstrap";
+import { parseNearAmount } from "near-api-js/lib/utils/format";
 import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getCharities as getCharityList,
@@ -37,13 +38,13 @@ const Charity = ({ charity }) => {
       setLoading(true);
       await donateToCharity({
         id: data.id,
-        donation: data.donation,
+        donation: (data.donation + ""),
 
       }).then((resp) => getCharities());
       toast(<NotificationSuccess text="Charity Project created successfully." />);
     } catch (error) {
       console.log({ error });
-      toast(<NotificationError text="Failed to create a charity project." />);
+      toast(<NotificationError text="Failed to make a donation to charity." />);
     } finally {
       setLoading(false);
     }
@@ -71,7 +72,7 @@ const Charity = ({ charity }) => {
           <Stack direction="horizontal" gap={2}>
             <span className="font-monospace text-secondary">{owner}</span>
             <Badge bg="secondary" className="ms-auto">
-              Goal: {utils.format.formatNearAmount(goal)} Near | Raised: {utils.format.formatNearAmount(raised)} Near
+            Goal: {utils.format.formatNearAmount(goal, 2)} Near | Raised: {utils.format.formatNearAmount(raised, 2)} Near
             </Badge>
           </Stack>
         </Card.Header>

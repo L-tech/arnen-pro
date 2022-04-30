@@ -7,8 +7,11 @@ const AddCharity = ({ save }) => {
   const [image, setImage] = useState("");
   const [purpose, setPurpose] = useState("");
   const [location, setLocation] = useState("");
-  const [goal, setGoal] = useState(0);
-  const isFormFilled = () => name && image && purpose && location && goal;
+  const [goal, setGoal] = useState(1);
+
+  const min = 100000000000000000000000;
+
+  const isFormFilled = () => name && image && purpose && location && Number(goal) > min;
 
   const [show, setShow] = useState(false);
 
@@ -90,8 +93,8 @@ const AddCharity = ({ save }) => {
               className="mb-3"
             >
               <Form.Control
-                type="text"
-                placeholder="Goal"
+                type="number"
+                placeholder="Goal(Min 1 Near)"
                 onChange={(e) => {
                   setGoal(e.target.value);
                 }}
