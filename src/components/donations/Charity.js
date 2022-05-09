@@ -9,13 +9,30 @@ import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getCharities as getCharityList,
   donateToCharity,
-  createCharity,
+  deleteCharity,
 } from "../../utils/donations";
 
 const Charity = ({ charity }) => {
   const [charities, setCharities] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const account = window.walletConnection.account();
+
+  const deleteCharityProject = async (charityId) => {
+    console.log(charityId);
+    try {
+      setLoading(true);
+      await deleteCharity({
+        id: charityId
+      }).then((resp) => getCharities());
+      toast(<NotificationSuccess text="Charity Project deleted successfully." />);
+    } catch (error) {
+      console.log({ error });
+      toast(<NotificationError text="Failed to delete project ." />);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const getCharities = useCallback(async () => {
     try {
@@ -33,7 +50,6 @@ const Charity = ({ charity }) => {
 
 
   const makeDonation = async (data) => {
-    console.log(data.id, data.amount);
     try {
       setLoading(true);
       await donateToCharity({
@@ -93,6 +109,7 @@ const Charity = ({ charity }) => {
           >
             Make Donation <MakeDonation save={makeDonation} id={id}/>
           </Button>
+          <button style={owner == account.accountId ? {} : { display: 'none' }} className="btn btn-danger" onClick={() => deleteCharityProject(id)}>Delete</button>
           
         </Card.Body>
       </Card>

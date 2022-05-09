@@ -9,7 +9,9 @@ import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getCharities as getCharityList,
   donateToCharity,
+  donateToAllProjects,
   createCharity,
+  getOngoingCharitiesCount,
 } from "../../utils/donations";
 
 const Charities = () => {
@@ -22,7 +24,6 @@ const Charities = () => {
       setLoading(true);
       setCharities(await getCharityList());
     } catch (error) {
-      console.log({ error });
     } finally {
       setLoading(false);
     }
@@ -42,6 +43,27 @@ const Charities = () => {
       setLoading(false);
     }
   };
+
+  const donateToAll = async (charityId) => {
+    let countIt = 0;
+    try {
+      setLoading(true);
+      await getOngoingCharitiesCount().then((resp) => {
+        countIt = resp;
+      }, (err) => {
+        console.log({ err });
+      });
+      await donateToAllProjects({
+        amount: countIt,
+      }).then((resp) => getCharities());
+      toast(<NotificationSuccess text="Donation successfully made to all Charity Projects." />);
+    } catch (error) {
+      console.log({ error });
+      toast(<NotificationError text="Failed to make donation." />);
+    } finally {
+      setLoading(false);
+    }
+  }
 
  
 
@@ -70,6 +92,7 @@ const Charities = () => {
         <>
           <div className="d-flex justify-content-between align-items-center mb-4">
             <h1 className="fs-4 fw-bold mb-0">Near Charity(Donations)</h1>
+            <button className="btn btn-dark" onClick={donateToAll}>Donate To All(1 Near Each)</button>
             <AddCharity save={addCharity} />
             
           </div>

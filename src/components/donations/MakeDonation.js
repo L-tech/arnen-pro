@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 
 const MakeDonation = ({ save, id }) => {
-  console.log(id);
   const [donation, setDonation] = useState(0);
   const min = 10000000000000000000000;
 

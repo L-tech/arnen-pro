@@ -17,8 +17,8 @@ export async function initializeContract() {
       window.walletConnection.account(),
       nearEnv.contractName,
       {
-        viewMethods: ["getCharity", "getCharities"],
-        changeMethods: ["donateToCharity", "setCharity"],
+        viewMethods: ["getCharity", "getCharities", "getOngoingCharityCount"],
+        changeMethods: ["donateToCharity", "setCharity", "donateToAll", "transferCharityOwnership", "deleteCharity"],
       }
     );
   }

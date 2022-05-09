@@ -79,14 +79,6 @@ export function transferCharityOwnership(charityId: string, newOwner: string): v
     listedCharities.set(charity.id, charity);
 }
 
-// get all uncompleted charity projects
-
-export function getUncompletedCharities(): Charity[] {
-    const charities = getCharities().filter(charity => !charity.completed);
-    return charities;
-}
-
-
 // delete a charity
 export function deleteCharity(charityId: string): void {
     const charity = getCharity(charityId);
@@ -100,4 +92,8 @@ export function deleteCharity(charityId: string): void {
 }
 
 
+// get all uncompleted charity projects count
+export function getOngoingCharityCount(): number {
+    return getCharities().filter(charity => !charity.completed).length;
+}
 

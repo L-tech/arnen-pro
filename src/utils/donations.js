@@ -17,3 +17,18 @@ export async function donateToCharity({ id, donation }) {
   parseNearAmount(donation + "");
   await window.contract.donateToCharity({ charityId: id }, GAS, donation);
 }
+
+export function getOngoingCharitiesCount() {
+  return window.contract.getOngoingCharityCount();
+}
+
+export function donateToAllProjects({ amount }) {
+  console.log("value passed", amount.toString());
+  const figure = amount + "000000000000000000000000";
+  parseNearAmount(figure + "");
+  return window.contract.donateToAll({ charityId: figure }, GAS, figure);
+}
+
+export function deleteCharity({ id }) {
+  return window.contract.deleteCharity({ charityId: id }, GAS);
+}
